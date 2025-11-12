@@ -1,0 +1,107 @@
+/* === Base Styles === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+/* === Header === */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #666;
+  font-size: 1em;
+}
+
+/* === Sections === */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  color: #444;
+}
+
+/* === Experience, Education Items === */
+.item {
+  margin-bottom: 20px;
+}
+
+.item h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #222;
+}
+
+.item .meta {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.item ul {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.item ul li {
+  margin-bottom: 5px;
+}
+
+/* === Skills Section === */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-list span {
+  background: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  section h2 {
+    font-size: 1.3em;
+  }
+}

@@ -1,0 +1,6 @@
+IaC/.terraform
+IaC/terraform.tfstate
+IaC/terraform.tfstate.backup 
+IaC/.terraform.lock.hcl
+**/local.settings.json
+.vscode/
