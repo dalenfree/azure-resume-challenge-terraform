@@ -35,13 +35,11 @@ resource "azurerm_storage_account" "frontend_storage_account" {
   resource_group_name      = azurerm_resource_group.resource_group.name
   location                 = azurerm_resource_group.resource_group.location
   account_tier             = "Standard"
-  account_replication_type = "LRS"
+  account_replication_type = "GRS"
 }
 
-resource "azurerm_storage_container" "frontend_storage_container" {
-  name                  = "blob${random_integer.resource_group_suffix.result}"
-  storage_account_id    = azurerm_storage_account.frontend_storage_account.id
-  container_access_type = "blob"
+resource "azurerm_storage_account_static_website" "storage_account_static_website" {
+  storage_account_id = azurerm_storage_account.frontend_storage_account.id
 }
 
 # Create a Function App with Python Runtime
