@@ -16,8 +16,8 @@ provider "azurerm" {
 
 # Create a Resource Group
 resource "azurerm_resource_group" "resource_group" {
-  name     = "tfresumerg"
-  location = "canadacentral"
+  name     = var.resourceGroupName
+  location = var.location
 }
 
 resource "random_integer" "resource_group_suffix" {
@@ -40,6 +40,8 @@ resource "azurerm_storage_account" "frontend_storage_account" {
 
 resource "azurerm_storage_account_static_website" "storage_account_static_website" {
   storage_account_id = azurerm_storage_account.frontend_storage_account.id
+  index_document    = "index.html"
+  error_404_document = "404.html"
 }
 
 # Create a Function App with Python Runtime
