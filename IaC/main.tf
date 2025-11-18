@@ -31,7 +31,7 @@ resource "random_integer" "resource_group_suffix" {
 
 # Create a Storage Account and Blob Container for Frontend
 resource "azurerm_storage_account" "frontend_storage_account" {
-  name                     = "fe${random_integer.resource_group_suffix.result}"
+  name                     = "frontend${random_integer.resource_group_suffix.result}"
   resource_group_name      = azurerm_resource_group.resource_group.name
   location                 = azurerm_resource_group.resource_group.location
   account_tier             = "Standard"
@@ -134,7 +134,7 @@ resource "azurerm_cosmosdb_sql_container" "cosmos_db_sql_container" {
   resource_group_name   = azurerm_resource_group.resource_group.name
   account_name          = azurerm_cosmosdb_account.cosmos_db_account.name
   database_name         = azurerm_cosmosdb_sql_database.cosmos_db_sql_database.name
-  partition_key_paths   = ["/definition/id"]
+  partition_key_paths   = ["/id"]
   partition_key_version = 1
   throughput            = 400
 

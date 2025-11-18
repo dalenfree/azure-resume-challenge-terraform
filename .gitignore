@@ -4,3 +4,6 @@ IaC/terraform.tfstate.backup
 IaC/.terraform.lock.hcl
 **/local.settings.json
 .vscode/
+terraform.tfstate
+IaC/.terraform.tfstate.lock.info
+backend/dns_api

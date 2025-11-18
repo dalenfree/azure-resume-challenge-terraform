@@ -5,11 +5,11 @@ on:
     branches:
       - main
     paths:
-      - 'backend/**' # VERY IMPORTANT if you don't include this, it will deploy on any change to the repo
+      - 'backend/http_trigger_app/**' # VERY IMPORTANT if you don't include this, it will deploy on any change to the repo
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: backend
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: backend/http_trigger_app
   PYTHON_VERSION: '3.11'
   AZURE_FUNCTIONAPP_NAME: '${{secrets.FUNCTIONAPP_NAME}}'  # your Azure Function App name
 
