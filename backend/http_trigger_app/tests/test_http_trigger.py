@@ -2,7 +2,7 @@ import json
 import pytest
 from unittest.mock import patch, MagicMock
 import azure.functions as func
-from backend import function_app as main
+from backend.http_trigger_app import function_app as main
 
 
 @pytest.fixture(autouse=True)
