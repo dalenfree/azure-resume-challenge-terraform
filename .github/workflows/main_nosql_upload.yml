@@ -51,4 +51,4 @@ jobs:
           COSMOS_DB_DATABASE_NAME: ${{ secrets.COSMOS_DB_DATABASE_NAME }}
           COSMOS_DB_CONTAINER_NAME: ${{ secrets.COSMOS_DB_CONTAINER_NAME }}
         run: |
-          python backend/sql_content/sql_upload_script.py
+          python sql_upload_script.py
