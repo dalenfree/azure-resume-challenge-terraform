@@ -45,17 +45,13 @@ jobs:
 
       - name: Zip deployment package
         working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        run: zip -r ../release.zip .
+        run: zip -r ../../release.zip .
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: python-app
           path: release.zip
-
-      - name: Check zip exists
-        run: ls -lh ../release.zip
-        working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 
   deploy:
     runs-on: ubuntu-latest
