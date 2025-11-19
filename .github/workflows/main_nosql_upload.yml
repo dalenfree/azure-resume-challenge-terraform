@@ -44,6 +44,7 @@ jobs:
 
       # Step 5: Run your Python script
       - name: Run script to upload JSON
+        working-directory: backend/sql_content
         env:
           COSMOS_DB_ENDPOINT: ${{ secrets.COSMOS_DB_ENDPOINT }}
           COSMOS_DB_KEY: ${{ secrets.COSMOS_DB_KEY }}
