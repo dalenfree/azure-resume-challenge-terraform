@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const incrementVisitorCount = async () => {
         try {
             // POST request to the API
-            const postResponse = await fetch('https://fa96407.azurewebsites.net/api/http_trigger', {
+            const postResponse = await fetch('https://fa88126.azurewebsites.net/api/http_trigger', {
             //const postResponse = await fetch('http://localhost:7071/api/http_trigger', {
                 method: 'POST',
                 headers: {

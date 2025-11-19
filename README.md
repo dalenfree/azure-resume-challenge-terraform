@@ -100,6 +100,14 @@ az cosmosdb sql container list --resource-group your_resource_group_name --accou
 ```
 
 2. Set up DNS with Front Door (CNAME, TXT)
-
+I created a script for the CNAME and TXT Secret records in the 
 
 3. Profit!
+
+## Learnings
+
+- GitHub worflow ymls are sensitive to folder structures and *look for zip files in the root directory by default*.
+
+- SQL JSON files must have an `id` field in order to be valid.
+
+- Adding secrets and variables means that you need to make sure the variables are properly used in all files.
