@@ -4,12 +4,14 @@ After completing the challenge with Bicep, I decided to try it again with Terraf
 
 ## Here are some steps you can follow to use the template above to see a finished product
 
+### Deployment
 1. Customize variables in `IaC/variables.tf` to your needs so the variables point to appropriate values (IMPORTANT: if you revise the Cosmos DB database and container IDs, remember to update them in `backend/function_app.py` as well!);
 
 2. Terraform Apply from `IaC` folder;
   
 ```
 cd path/to/azure-resume-challenge-terraform/IaC
+terraform init
 terraform validate
 terraform apply
 ```
@@ -63,8 +65,8 @@ az ad app federated-credential create \
   AZURE_SUBSCRIPTION_ID
   AZURE_TENANT_ID
   RESOURCE_GROUP_NAME
-  FUNCTIONAPP_NAME <- Get by using `az functionapp list --resource-group <RESOURCE_GROUP_NAME>`
-  ACCOUNT_NAME
+  FUNCTIONAPP_NAME
+  ACCOUNT_NAME <-- Account Name for Static Website Storage Account
   FRONTDOOR
   FRONTDOOR_ENDPOINT
   COSMOS_DB_ENDPOINT
@@ -84,7 +86,7 @@ git push -u origin main
 
 7. Run Frontend and Backend workflows. This should be automatic - if not, then log into GitHub from a browser and run the workflows.
 
-After deploy:
+### After Deployment
 1. Fetch name of SQL server and database for sql_upload_script.py
 
 `your_database`
@@ -100,9 +102,24 @@ az cosmosdb sql container list --resource-group your_resource_group_name --accou
 ```
 
 2. Set up DNS with Front Door (CNAME, TXT)
-I created a script for the CNAME and TXT Secret records in the 
+I haven't discovered a good way to set up a custom domain hosted outside Azure via cli, so this part you will need to do through the Azure portal.
 
-3. Profit!
+3. Set up CORS on the Function App to allow your custom domain and static website.
+
+4. Set environment variables in Function App 
+- COSMOS_DB_URL
+- COSMOS_DB_KEY
+
+5. After all this, everything should be set up. You may need to wait a while for the custom domain to actually route to the static website via Front Door.
+
+## Semi-Automated
+1. Apply Terraform;
+2. Run `repo_secrets` bash script;
+3. Push to GitHub and run workflows;
+4. In Azure Portal:
+- Set CORS for Function App;
+- Set env variables for Function App (`COSMOS_DB_URL`, `COSMOS_DB_KEY`);
+5. Add TXT secret and CNAME for external DNS. If you use Porkbun, you can use the python scripts in the `dns_api` folder. Be sure to set up API for your domain first!
 
 ## Learnings
 

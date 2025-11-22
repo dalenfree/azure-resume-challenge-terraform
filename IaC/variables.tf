@@ -5,7 +5,7 @@ variable "location" {
 
 variable "customDomain" {
   type    = string
-  default = "resume.dalenmcclintock.com"
+  default = "tfresume.dalenmcclintock.com"
   description = "full subdomain address for Front Door. E.g., 'cdn.example.com'."
 }
 

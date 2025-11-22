@@ -202,3 +202,33 @@ resource "azurerm_cdn_frontdoor_rule_set" "cdn_frontdoor_rule_set" {
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.cdn_frontdoor_profile.id
 }
 
+resource "azurerm_cdn_frontdoor_route" "cdn_frontdoor_route" {
+  name                          = "fdroute${random_integer.resource_group_suffix.result}"
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.cdn_frontdoor_endpoint.id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.cdn_frontdoor_origin_group.id
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.cdn_frontdoor_origin.id]
+  cdn_frontdoor_rule_set_ids    = [azurerm_cdn_frontdoor_rule_set.cdn_frontdoor_rule_set.id]
+  enabled                       = true
+
+  forwarding_protocol    = "HttpsOnly"
+  https_redirect_enabled = true
+  patterns_to_match      = ["/*"]
+  supported_protocols    = ["Http", "Https"]
+
+  cache {
+    query_string_caching_behavior = "IgnoreSpecifiedQueryStrings"
+    query_strings                 = ["account", "settings"]
+    compression_enabled           = true
+    content_types_to_compress     = ["text/html", "text/javascript", "text/xml"]
+  }
+}
+
+resource "azurerm_cdn_frontdoor_custom_domain" "cdn_frontdoor_custom_domain" {
+  name                     = "fdcustomdomain"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.cdn_frontdoor_profile.id
+  host_name                = var.customDomain
+
+  tls {
+    certificate_type    = "ManagedCertificate"
+  }
+}

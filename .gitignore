@@ -6,4 +6,3 @@ IaC/.terraform.lock.hcl
 .vscode/
 terraform.tfstate
 IaC/.terraform.tfstate.lock.info
-backend/dns_api
