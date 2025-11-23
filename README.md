@@ -1,6 +1,6 @@
 # azure-resume-challenge-terraform
 
-After completing the challenge with Bicep, I decided to try it again with Terraform instead. I found the overall experience of using both to be pretty similar, but if I had to choose one IaC platform moving forward it will probably be Terraform, mainly because it can be used with multiple cloud providers and seems to be more widely used.
+After completing the challenge with Bicep, I decided to try it again with Terraform. I found the overall experience of using both to be pretty similar, but if I had to choose one IaC platform moving forward it will probably be Terraform, mainly because it can be used with multiple cloud providers and seems to be more widely used.
 
 ## Here are some steps you can follow to use the template above to see a finished product
 
@@ -84,7 +84,7 @@ git remote add origin https://github.com/<username>/<repo-name>
 git push -u origin main
 ```
 
-7. Run Frontend and Backend workflows. This should be automatic - if not, then log into GitHub from a browser and run the workflows.
+7. Run the GitHub workflows: `main.backend.yml`, `main_frontend.yml`, `main_nosql_upload`. This should be automatic - if not, then log into GitHub from a browser and run the workflows.
 
 ### After Deployment
 1. Fetch name of SQL server and database for sql_upload_script.py
@@ -123,8 +123,12 @@ I haven't discovered a good way to set up a custom domain hosted outside Azure v
 
 ## Learnings
 
-- GitHub worflow ymls are sensitive to folder structures and *look for zip files in the root directory by default*.
+- GitHub workflow ymls are sensitive to folder structures and *look for zip files in the root directory by default*.
 
 - SQL JSON files must have an `id` field in order to be valid.
 
 - Adding secrets and variables means that you need to make sure the variables are properly used in all files.
+
+## Next Steps
+
+For the next step, I want to focus on making 
