@@ -131,4 +131,4 @@ I haven't discovered a good way to set up a custom domain hosted outside Azure v
 
 ## Next Steps
 
-For the next step, I want to focus on making 
+For the next step, I want to see if I can further automate this setup.
