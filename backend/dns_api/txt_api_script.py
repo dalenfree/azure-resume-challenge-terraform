@@ -9,6 +9,7 @@ import os
 # export DNS_DOMAIN="yourdomain.com"
 # export TXT_SECRET="txt"
 # -------------------------------------------
+
 API_KEY = os.getenv("API_KEY")
 SECRET_API_KEY = os.getenv("SECRET_API_KEY")
 SUBDOMAIN = os.getenv("DNS_SUBDOMAIN")
